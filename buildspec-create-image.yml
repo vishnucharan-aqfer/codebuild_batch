@@ -6,7 +6,7 @@ phases:
             - docker build -t myapp .
             - docker images
             - echo "Saving Docker image as tar file"
-            - docker save myapp.latest -o myapp.tar
+            - docker save myapp:latest -o myapp.tar
 artifacts:
     files:
         - myapp.tar
