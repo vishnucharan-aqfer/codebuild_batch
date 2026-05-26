@@ -1,12 +1,15 @@
 version: 0.2
+
 phases:
-    build:
-        commands:
-            - echo "Building the docker image"
-            - docker build -t myapp .
-            - docker images
-            - echo "Saving Docker image as tar file"
-            - docker save myapp:latest -o myapp.tar
-artifacts:
-    files:
-        - myapp.tar
+  build:
+    commands:
+      - echo "Building Docker image"
+
+      - docker build -t myapp .
+
+      - echo "Saving Docker image"
+      - docker save myapp:latest -o myapp.tar
+
+      - echo "Uploading image tar to S3"
+
+      - aws s3 cp myapp.tar s3://vishnu-test-codebuild-batch/myapp.tar
