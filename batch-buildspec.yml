@@ -7,7 +7,4 @@ batch:
           buildspec: buildspec-use-image.yml
           depend-on:
             - create_image
-          env:
-              variables:
-                  IMAGE_ARTIFACT: myapp.tar
                   
