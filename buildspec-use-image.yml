@@ -3,17 +3,14 @@ version: 0.2
 phases:
   build:
     commands:
-      - echo "Current directory"
-      - pwd
+      - echo "Downloading image tar from S3"
 
-      - echo "Listing files"
-      - ls -la
+      - aws s3 cp s3://vishnu-test-codebuild-batch/myapp.tar myapp.tar
 
-      - echo "Searching for tar file"
-      - find . -name "*.tar"
+      - echo "Loading Docker image"
 
-      - echo "Loading docker image"
       - docker load -i myapp.tar
 
-      - echo "Running docker container"
+      - echo "Running Docker container"
+
       - docker run myapp
