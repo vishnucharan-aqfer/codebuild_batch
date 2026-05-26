@@ -1,1 +1,3 @@
-echo "Hello from Docker container! This is BatchBuild task"
+#!/bin/bash
+
+echo "Hello from Docker Batch Build!"
