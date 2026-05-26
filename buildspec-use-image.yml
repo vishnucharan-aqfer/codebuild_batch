@@ -1,0 +1,10 @@
+version: 0.2
+phases:
+    build:
+        commands:
+            - echo "Loading Docker image"
+            - docker load -i myapp.tar
+            - echo "Please find the list of docker images present"
+            - docker images
+            - echo "Running Docker Container"
+            - docker run myapp

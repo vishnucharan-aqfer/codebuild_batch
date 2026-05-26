@@ -1,0 +1,9 @@
+version: 0.2
+batch:
+    build-graph:
+        - identifier: create_image
+          buildspec: buildspec-create-image.yml
+        - identifier: use_image
+          buildspec: buildspec-use-image.yml
+          depend-on:
+            - create_image
